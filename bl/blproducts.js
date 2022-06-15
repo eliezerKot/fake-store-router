@@ -1,14 +1,20 @@
+const { read } = require('../dl/controllers/categoryCont')
 const prcont = require('../dl/controllers/prcont')
 
 async function getAll() {
     const list = await prcont.read()
-    console.log(list);
+    // console.log(list);
+    return list
+}
+async function getAllc() {
+    const list = await read()
+    // console.log(list);
     return list
 }
 
 async function findById(id) {
     const user = await prcont.findbyid(id)
-    console.log(user);
+    // console.log(user);
     return user
 }
 function validation(newData) {
@@ -40,4 +46,4 @@ async function delete1(id) {
     return deleted
 }
 
-module.exports = { getAll, create, update, delete1, findById }
+module.exports = { getAll, create, update, delete1, findById, getAllc }

@@ -8,7 +8,7 @@ async function connect() {
             { useNewUrlParser: true },
             (error) => {
                 if (error) { console.log("error1:", error) }
-                console.log(mongoose.connection.readyState)
+                console.log("mongoose -",mongoose.connection.readyState)
             })
     } catch (error) {
         console.log("error2:", error, mongoose.connection.readyState)

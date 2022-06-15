@@ -10,40 +10,39 @@ async function sendToDb(list) {
     const list1 = await prmodel.insertMany(list)
     return list1
 }
-
+// sendToDb(list)
 async function findbyid(id){
     const obj = await prmodel.findById(id)
-    console.log(obj);
+    
     return obj
 }
 
 async function read(filter={}){
-const list = await prmodel.find({...filter,isActive:true})
-console.log(list);
+const list = await prmodel.find({...filter,isActive:true}).populate('category')
 return list
 }
 
 async function delete1(id){
     const deleted = await prmodel.findByIdAndUpdate(id,{isActive:false},{new:true})
-    console.log(deleted);
+    // console.log(deleted);
     return deleted
 }
 
 async function createobj(obj){
     const newobj = await prmodel.create(obj)
-    console.log(newobj);
+    // console.(newobj);
     return newobj
 }
 
 async function updateobj(id,newData){
     const updatedobj = await prmodel.findByIdAndUpdate(id,newData,{new:true})
-    console.log(updatedobj);
+    // console.log(updatedobj);
     return updatedobj
 }
 
 async function deleteobj(id){
 const deletedobj = await prmodel.findByIdAndDelete(id)
-console.log(deletedobj);
+// console.log(deletedobj);
 return deletedobj
 }
 
